@@ -6,7 +6,7 @@
 .q-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: min(100%, 320px);
+  width: min(100%, var(--board-max, 320px));
   aspect-ratio: 1;
   gap: 6px;
   padding: 10px;

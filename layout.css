@@ -1,11 +1,12 @@
-/* Full-screen + mobile layout for every game */
+/* Full-viewport layout — scales from phones to 32"+ monitors */
 :root {
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
-  /* Viewport-only units — never use % here (it collapsed boards to ~0) */
-  --board-max: min(96vw, 72dvh, 560px);
+  --chrome-h: 9.5rem;
+  /* No tiny px cap — board uses almost the full window */
+  --board-max: min(94vw, calc(100dvh - var(--chrome-h) - var(--safe-top) - var(--safe-bottom)));
 }
 
 html {
@@ -25,31 +26,27 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.app {
+.app,
+.app.wide,
+.snake-app {
   width: 100% !important;
-  max-width: 1100px !important;
+  max-width: none !important;
   margin: 0 auto;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   padding:
-    max(0.5rem, var(--safe-top))
-    max(0.75rem, var(--safe-right))
-    max(0.85rem, var(--safe-bottom))
-    max(0.75rem, var(--safe-left)) !important;
-}
-
-.app.wide,
-.snake-app {
-  width: 100% !important;
-  max-width: 1100px !important;
+    max(0.45rem, var(--safe-top))
+    max(1vw, var(--safe-right))
+    max(0.55rem, var(--safe-bottom))
+    max(1vw, var(--safe-left)) !important;
 }
 
 .back-home {
   flex-shrink: 0;
-  margin-bottom: 0.35rem !important;
-  padding: 0.25rem 0;
+  margin-bottom: 0.25rem !important;
+  padding: 0.2rem 0;
   min-height: 2rem;
   display: inline-flex;
   align-items: center;
@@ -57,23 +54,23 @@ body {
 
 .header {
   flex-shrink: 0;
-  margin-bottom: 0.35rem !important;
+  margin-bottom: 0.25rem !important;
 }
 
 .brand {
-  font-size: clamp(1.55rem, 5.5vw, 2.75rem) !important;
+  font-size: clamp(1.5rem, 2.2vw + 1rem, 3.4rem) !important;
   line-height: 1.05;
 }
 
 .tagline {
-  font-size: clamp(0.65rem, 2.2vw, 0.82rem) !important;
-  margin-top: 0.2rem !important;
+  font-size: clamp(0.68rem, 0.6vw + 0.55rem, 1rem) !important;
+  margin-top: 0.15rem !important;
 }
 
 .toolbar {
   flex-shrink: 0;
-  margin-bottom: 0.5rem !important;
-  gap: 0.4rem !important;
+  margin-bottom: 0.4rem !important;
+  gap: 0.45rem !important;
 }
 
 .btn,
@@ -88,31 +85,30 @@ body {
 
 .status-line {
   flex-shrink: 0;
-  margin: 0 0 0.35rem !important;
-  font-size: clamp(1rem, 3.8vw, 1.3rem) !important;
-  min-height: 1.25em;
+  margin: 0 0 0.25rem !important;
+  font-size: clamp(1.05rem, 1vw + 0.85rem, 1.75rem) !important;
+  min-height: 1.2em;
 }
 
 .score-line {
   flex-shrink: 0;
-  margin: 0 0 0.35rem !important;
-  font-size: clamp(0.8rem, 3vw, 0.95rem) !important;
+  margin: 0 0 0.25rem !important;
+  font-size: clamp(0.82rem, 0.5vw + 0.7rem, 1.15rem) !important;
 }
 
-/* Play area — room for a large board */
+/* Play area fills the rest of the monitor */
 .view-stage,
 [data-view-stage] {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  max-width: 100% !important;
-  min-height: min(72dvh, 560px);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0.35rem !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  margin: 0 auto;
+  padding: 0.25rem !important;
   box-sizing: border-box;
 }
 
@@ -121,7 +117,7 @@ body {
   max-width: 100%;
 }
 
-/* Large fluid boards */
+/* Boards grow with the monitor */
 .rev-board,
 .go-board,
 .hex-board,
@@ -149,40 +145,42 @@ body {
 .board-well,
 .stage-frame,
 .uno-layout,
-.mono-wrap {
+.mono-wrap,
+.mono-board {
   width: var(--board-max) !important;
   max-width: 100% !important;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   box-sizing: border-box;
 }
 
 .board-wrap {
   width: var(--board-max) !important;
   max-width: 100% !important;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .bs-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 1.5vw, 1.25rem);
   justify-content: center;
   align-items: flex-start;
-  width: min(100%, calc(var(--board-max) * 2.15)) !important;
+  width: min(98vw, calc(var(--board-max) * 2.2)) !important;
   max-width: 100% !important;
   margin: 0 auto;
 }
 
 .bs-board {
-  width: min(100%, calc((96vw - 2rem) / 2), 300px) !important;
+  width: min(48vw, calc((100dvh - var(--chrome-h)) * 0.85), calc(var(--board-max) * 0.95)) !important;
 }
 
 #canvas,
 canvas {
-  max-width: 100%;
-  height: auto;
+  width: min(100%, var(--board-max)) !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 .play-layout {
@@ -190,51 +188,58 @@ canvas {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
   width: 100% !important;
-  max-width: 100%;
+  max-width: none !important;
+}
+
+.play-layout .board-well,
+.play-layout #canvas {
+  width: min(var(--board-max), calc(100dvh - var(--chrome-h) - 2rem)) !important;
 }
 
 .stage {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
   min-height: 0;
   width: 100%;
+  max-width: none;
 }
 
+/* Home fills large monitors */
 .home {
   width: 100% !important;
-  max-width: 1200px;
+  max-width: none !important;
   margin: 0 auto;
   min-height: 100dvh;
   padding:
     max(1rem, var(--safe-top))
-    max(0.85rem, var(--safe-right))
+    clamp(1rem, 3vw, 3rem)
     max(1.5rem, var(--safe-bottom))
-    max(0.85rem, var(--safe-left)) !important;
+    clamp(1rem, 3vw, 3rem) !important;
   box-sizing: border-box;
+}
+
+.home .card-grid {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 @media (max-width: 640px) {
   :root {
-    --board-max: min(94vw, 68dvh, 520px);
+    --chrome-h: 10.5rem;
+    --board-max: min(96vw, calc(100dvh - var(--chrome-h)));
   }
 
-  .view-stage,
-  [data-view-stage] {
-    min-height: min(68dvh, 520px);
-  }
-
-  .brand {
-    font-size: clamp(1.45rem, 7vw, 2.1rem) !important;
+  .app,
+  .app.wide,
+  .snake-app {
+    min-height: 100dvh;
   }
 
   .toolbar .btn,
   .toolbar .view-toggle {
     flex: 1 1 auto;
-  }
-
-  .view-toggle {
-    display: inline-flex;
   }
 
   .view-toggle .view-btn {
@@ -243,7 +248,6 @@ canvas {
 
   .view-stage.is-3d {
     transform: perspective(900px) rotateX(4deg) scale(0.995);
-    margin-bottom: 0.5rem;
   }
 }
 
@@ -260,7 +264,8 @@ canvas {
 
 @media (max-height: 520px) and (orientation: landscape) {
   :root {
-    --board-max: min(55vh, 70vw, 420px);
+    --chrome-h: 6rem;
+    --board-max: min(70vw, calc(100dvh - var(--chrome-h)));
   }
 
   .header .tagline {
@@ -268,12 +273,50 @@ canvas {
   }
 
   .brand {
-    font-size: 1.35rem !important;
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Large / mid desktop monitors */
+@media (min-width: 1100px) {
+  :root {
+    --chrome-h: 8.5rem;
+    --board-max: min(86vw, calc(100dvh - var(--chrome-h)));
   }
 
-  .view-stage,
-  [data-view-stage] {
-    min-height: min(55vh, 360px);
+  .home .card-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* 24–27"+ / ultrawide */
+@media (min-width: 1500px) {
+  :root {
+    --chrome-h: 8rem;
+    --board-max: min(78vw, calc(100dvh - var(--chrome-h)));
+  }
+
+  .home .card-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    max-width: 2200px;
+  }
+
+  .btn,
+  .view-toggle .view-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.15rem;
+  }
+}
+
+/* 32"+ very large */
+@media (min-width: 2000px) {
+  :root {
+    --board-max: min(70vw, calc(100dvh - var(--chrome-h)));
+  }
+
+  .home .card-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+    max-width: 2600px;
   }
 }
 
@@ -285,11 +328,5 @@ canvas {
 
   .game-card:hover {
     transform: none;
-  }
-}
-
-@media (min-width: 900px) {
-  :root {
-    --board-max: min(92vw, 75dvh, 640px);
   }
 }

@@ -79,7 +79,7 @@
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(15, 1fr);
-  width: min(100%, 480px);
+  width: min(100%, var(--board-max, 480px));
   margin: 0 auto;
   aspect-ratio: 1;
   border: 4px solid #5a3a2a;

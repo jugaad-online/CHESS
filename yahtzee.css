@@ -4,7 +4,7 @@
 .btn:hover { background: var(--accent-deep); }
 
 .yh-wrap {
-  width: min(100%, 420px);
+  width: min(100%, var(--board-max, 420px));
   margin: 0 auto;
 }
 .yh-dice {

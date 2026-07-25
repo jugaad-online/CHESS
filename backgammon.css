@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: 1fr 28px 1fr;
-  width: min(100%, 560px);
+  width: min(100%, var(--board-max, 560px));
   margin: 0 auto;
   min-height: 360px;
   background: #1f3358;

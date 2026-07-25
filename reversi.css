@@ -6,7 +6,7 @@
 .rev-board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  width: min(100%, 420px);
+  width: min(100%, var(--board-max, 420px));
   aspect-ratio: 1;
   gap: 2px;
   padding: 8px;

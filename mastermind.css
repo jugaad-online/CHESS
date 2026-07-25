@@ -4,7 +4,7 @@
 .btn:hover { background: var(--accent-deep); }
 
 .mm-wrap {
-  width: min(100%, 340px);
+  width: min(100%, var(--board-max, 340px));
   margin: 0 auto;
   padding: 0.75rem;
   background: #fce7ef;

@@ -4,7 +4,7 @@
 .btn:hover { background: var(--accent-deep); }
 
 .sol-board {
-  width: min(100%, 560px);
+  width: min(100%, var(--board-max, 560px));
   margin: 0 auto;
   padding: 0.65rem;
   background: #86efac;

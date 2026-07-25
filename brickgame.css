@@ -26,7 +26,7 @@
 
 #canvas {
   display: block;
-  width: min(100%, 300px);
+  width: min(100%, var(--board-max, 300px));
   max-width: 100%;
   height: auto;
   background: #1a2330;
@@ -35,7 +35,7 @@
 }
 
 .side {
-  width: min(100%, 160px);
+  width: min(100%, var(--board-max, 160px));
   display: flex;
   flex-direction: column;
   gap: 0.55rem;

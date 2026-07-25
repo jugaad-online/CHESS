@@ -5,7 +5,7 @@
 .ck-board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  width: min(100%, 420px);
+  width: min(100%, var(--board-max, 420px));
   margin: 0 auto;
   aspect-ratio: 1;
   box-shadow: var(--shadow);

@@ -5,7 +5,7 @@
 
 .nmm-board {
   position: relative;
-  width: min(100%, 400px);
+  width: min(100%, var(--board-max, 400px));
   aspect-ratio: 1;
   margin: 0 auto;
   background: #dcc8a8;

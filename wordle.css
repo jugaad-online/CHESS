@@ -5,7 +5,7 @@
 .word-board {
   display: grid;
   gap: 6px;
-  width: min(100%, 320px);
+  width: min(100%, var(--board-max, 320px));
   margin: 0 auto 1rem;
 }
 .word-row {
@@ -30,7 +30,7 @@
 .keyboard {
   display: grid;
   gap: 6px;
-  width: min(100%, 480px);
+  width: min(100%, var(--board-max, 480px));
   margin: 0 auto;
 }
 .key-row {

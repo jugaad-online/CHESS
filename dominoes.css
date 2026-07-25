@@ -3,7 +3,7 @@
 .btn { background: var(--accent); }
 .btn:hover { background: var(--accent-deep); }
 
-.dom-layout { width: min(100%, 520px); margin: 0 auto; }
+.dom-layout { width: min(100%, var(--board-max, 520px)); margin: 0 auto; }
 .dom-label {
   margin: 0.4rem 0;
   font-size: 0.78rem;

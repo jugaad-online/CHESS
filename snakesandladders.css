@@ -138,7 +138,7 @@
 
 .board-wrap {
   position: relative;
-  width: min(100%, 480px);
+  width: min(100%, var(--board-max, 480px));
   margin: 0 auto;
   aspect-ratio: 1;
   box-shadow: var(--shadow);

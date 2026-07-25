@@ -6,7 +6,7 @@
 .fg-board {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  width: min(100%, 380px);
+  width: min(100%, var(--board-max, 380px));
   aspect-ratio: 1;
   margin: 0 auto;
   gap: 3px;

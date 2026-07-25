@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: min(100%, 460px);
+  width: min(100%, var(--board-max, 460px));
   padding: 12px 8px 20px;
   background: #e8efe8;
   border: 3px solid #3d4a45;

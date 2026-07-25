@@ -4,7 +4,7 @@
 .btn:hover { background: var(--accent-deep); }
 
 .uno-layout {
-  width: min(100%, 640px);
+  width: min(100%, var(--board-max, 640px));
   margin: 0 auto;
   display: flex;
   flex-direction: column;

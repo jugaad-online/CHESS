@@ -48,12 +48,12 @@ body {
 
 .app {
   width: 100%;
-  max-width: 1120px;
+  max-width: none;
   margin: 0 auto;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 0.85rem 1.25rem;
+  padding: 0.75rem 1vw 1.25rem;
   box-sizing: border-box;
 }
 
@@ -118,7 +118,7 @@ body {
 }
 
 .board-wrap {
-  width: min(100%, 520px);
+  width: min(100%, var(--board-max, 90vw));
   max-width: 100%;
   margin: 0 auto;
   min-width: 0;
@@ -683,10 +683,12 @@ body {
 @media (min-width: 980px) {
   .stage {
     display: grid;
-    grid-template-columns: minmax(180px, 210px) minmax(0, 520px) minmax(180px, 210px);
+    grid-template-columns: minmax(200px, 280px) minmax(0, var(--board-max, 70vw)) minmax(200px, 280px);
     align-items: start;
     justify-content: center;
-    gap: 1.25rem;
+    gap: clamp(1rem, 2vw, 2rem);
+    width: 100%;
+    max-width: none;
   }
 
   .board-wrap {
@@ -699,7 +701,7 @@ body {
   }
 
   .history {
-    max-height: 340px;
+    max-height: min(60vh, 520px);
   }
 }
 

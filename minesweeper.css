@@ -6,7 +6,7 @@
 .ms-board {
   display: grid;
   gap: 2px;
-  width: min(100%, 480px);
+  width: min(100%, var(--board-max, 480px));
   margin: 0 auto;
   background: #2f3b42;
   padding: 4px;

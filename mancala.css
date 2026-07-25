@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 64px 1fr 64px;
   gap: 8px;
-  width: min(100%, 520px);
+  width: min(100%, var(--board-max, 520px));
   margin: 0 auto;
   padding: 12px;
   background: #8b6914;

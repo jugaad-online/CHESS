@@ -7,7 +7,7 @@
 .mono-wrap {
   display: grid;
   gap: 0.75rem;
-  width: min(100%, 720px);
+  width: min(100%, var(--board-max, 720px));
   margin: 0 auto;
 }
 
@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: repeat(11, 1fr);
-  width: min(100%, min(92vw, 68dvh, 560px));
+  width: min(100%, var(--board-max, 90vw));
   aspect-ratio: 1;
   margin: 0 auto;
   background: #cfe0d4;
@@ -27,7 +27,7 @@
   position: relative;
   border: 1px solid rgba(26, 36, 33, 0.18);
   background: #eef5f0;
-  font-size: clamp(0.38rem, 1.4vw, 0.55rem);
+  font-size: clamp(0.42rem, 0.7vw + 0.25rem, 0.85rem);
   line-height: 1.15;
   padding: 1px;
   overflow: hidden;
@@ -101,10 +101,10 @@
 .mono-panel .cash { font-variant-numeric: tabular-nums; font-weight: 700; }
 .mono-panel .bust { color: #c45c48; }
 
-@media (min-width: 720px) {
+@media (min-width: 900px) {
   .mono-wrap {
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
     align-items: start;
-    width: min(100%, 820px);
+    width: min(98vw, calc(var(--board-max, 80vw) + 300px));
   }
 }
