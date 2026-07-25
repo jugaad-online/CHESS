@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="sudoku.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Sudoku</h1>
+      <p class="tagline">Fill every row, column, and box with 1–9</p>
+    </header>
+
+    <main class="stage">
+      <aside class="panel">
+        <div class="status-card">
+          <p class="label">Status</p>
+          <p id="status-text" class="status">Ready</p>
+          <p id="timer-text" class="timer">0:00</p>
+        </div>
+
+        <div class="difficulty-card">
+          <p class="label">Difficulty</p>
+          <div class="diff-row" role="group" aria-label="Difficulty">
+            <button type="button" class="diff-btn active" data-diff="easy">Easy</button>
+            <button type="button" class="diff-btn" data-diff="medium">Medium</button>
+            <button type="button" class="diff-btn" data-diff="hard">Hard</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="btn-new" type="button" class="btn">New puzzle</button>
+          <button id="btn-check" type="button" class="btn btn-ghost">Check</button>
+          <button id="btn-hint" type="button" class="btn btn-ghost">Hint</button>
+          <button id="btn-erase" type="button" class="btn btn-ghost">Erase</button>
+          <button id="btn-help" type="button" class="btn btn-ghost">Help & Rules</button>
+        </div>
+      </aside>
+
+      <section class="board-wrap" aria-label="Sudoku board">
+        <div id="board" class="board" role="grid"></div>
+        <div id="keypad" class="keypad" aria-label="Number pad">
+          <button type="button" data-num="1">1</button>
+          <button type="button" data-num="2">2</button>
+          <button type="button" data-num="3">3</button>
+          <button type="button" data-num="4">4</button>
+          <button type="button" data-num="5">5</button>
+          <button type="button" data-num="6">6</button>
+          <button type="button" data-num="7">7</button>
+          <button type="button" data-num="8">8</button>
+          <button type="button" data-num="9">9</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="help-modal" class="modal hidden" hidden role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <div class="modal-card help-card">
+      <div class="help-top">
+        <h2 id="help-title">Help & Rules</h2>
+        <button id="btn-help-close" type="button" class="help-close" aria-label="Close help">×</button>
+      </div>
+
+      <div class="help-tabs" role="tablist" aria-label="Help sections">
+        <button type="button" class="help-tab active" role="tab" aria-selected="true" data-tab="play">How to play</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="rules">Rules</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="controls">Controls</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="tips">Tips</button>
+      </div>
+
+      <div class="help-body">
+        <section id="help-play" class="help-panel active" role="tabpanel">
+          <h3>Using this game</h3>
+          <ul>
+            <li><strong>All games</strong> returns to the home screen to switch between Chess and Sudoku.</li>
+            <li><strong>Tap a cell</strong> to select it. Related row, column, and box are highlighted.</li>
+            <li><strong>Enter a number</strong> with the on-screen pad or keys <strong>1–9</strong>.</li>
+            <li><strong>Erase</strong> clears the selected cell (or press Backspace / Delete / 0).</li>
+            <li>Given clue numbers (darker cells) cannot be changed.</li>
+            <li>Conflicts turn red when the same number repeats in a row, column, or 3×3 box.</li>
+            <li>When the grid matches the solution, status shows <strong>Solved!</strong> and the timer stops.</li>
+          </ul>
+        </section>
+
+        <section id="help-rules" class="help-panel" role="tabpanel" hidden>
+          <h3>Sudoku rules</h3>
+          <article class="rule-block">
+            <h4>The goal</h4>
+            <p>Fill the 9×9 grid so that every <strong>row</strong>, every <strong>column</strong>, and every <strong>3×3 box</strong> contains the digits <strong>1 through 9</strong> exactly once.</p>
+          </article>
+          <article class="rule-block">
+            <h4>Clues</h4>
+            <p>Some cells start filled. Those are clues. Keep them and fill the empty cells around them.</p>
+          </article>
+          <article class="rule-block">
+            <h4>Difficulty</h4>
+            <p><strong>Easy</strong> leaves more clues, <strong>Medium</strong> removes more, <strong>Hard</strong> removes the most. Each new puzzle is generated with a unique solution.</p>
+          </article>
+        </section>
+
+        <section id="help-controls" class="help-panel" role="tabpanel" hidden>
+          <h3>Buttons &amp; keys</h3>
+          <ul>
+            <li><strong>New puzzle</strong> — generate a fresh grid at the current difficulty.</li>
+            <li><strong>Check</strong> — reports how many cells are wrong or still empty.</li>
+            <li><strong>Hint</strong> — fills one empty cell with the correct number.</li>
+            <li><strong>Erase</strong> — clears your selected (non-clue) cell.</li>
+            <li><strong>1–9</strong> — place that digit in the selected cell.</li>
+            <li><strong>Arrow keys</strong> — move the selection around the board.</li>
+            <li><strong>Escape</strong> — closes this help panel.</li>
+          </ul>
+        </section>
+
+        <section id="help-tips" class="help-panel" role="tabpanel" hidden>
+          <h3>Helpful tips</h3>
+          <ul class="tips-list">
+            <li><strong>Scan singles</strong> — if a cell has only one possible digit, place it.</li>
+            <li><strong>Use boxes</strong> — look at a 3×3 box and see where a missing digit must go.</li>
+            <li><strong>Cross-hatch</strong> — for a digit, mark rows/columns that already have it, then find the open spot in a box.</li>
+            <li><strong>Don’t guess early</strong> — on Medium/Hard, forced moves usually exist before you need trial and error.</li>
+            <li><strong>Check often</strong> — Catch mistakes early with Check before the grid fills up.</li>
+            <li><strong>Hints sparingly</strong> — use Hint when stuck, then try to understand why that number fits.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="sudoku.js"></script>
+</body>
+</html>

@@ -1,70 +1,80 @@
-# Chess
+# Games — Chess & Sudoku
 
-A browser chess game with a computer opponent, adaptive difficulty, and full rules support.
+Browser board games with a card-based home screen.
 
 **Live demo:** [https://jugaad-online.github.io/CHESS/](https://jugaad-online.github.io/CHESS/)
 
-## Features
+## Quick start
 
-- Play **vs Computer** (you are White) or **2 Players** on the same device
-- Legal moves only — castling, en passant, promotion, check, checkmate, stalemate, 50-move draw
-- **Hardness levels** that go up automatically each time you beat the computer
-- Undo, flip board, move history (SAN), captured pieces
-- In-app **Help & Rules** with piece moves, special rules, and tips
-
-## Hardness
-
-Levels: **Beginner → Easy → Medium → Hard → Expert**
-
-- Winning against the computer raises the level by one
-- The level is saved in the browser and kept across new games
-- Use **Reset level** to return to Beginner
-
-## How to play
-
-1. Open `index.html` in a browser, or visit the live demo above
-2. Click a piece, then a highlighted square to move
-3. Use **Help & Rules** for full instructions
-
-## Files
-
-| File | Purpose |
-|------|---------|
-| `index.html` | Page structure and help content |
-| `styles.css` | Layout and styling |
-| `script.js` | Chess rules, AI, and UI logic |
-
-## Run locally
-
-No build step required:
+1. Open [the live site](https://jugaad-online.github.io/CHESS/) or `index.html` locally
+2. Choose a **card**: Chess or Sudoku
+3. Use **← All games** to return to the picker
+4. Open **Help & Rules** inside each game for full instructions
 
 ```bash
-# Option A — open the file
-open index.html
-
-# Option B — simple local server (recommended)
 npx --yes serve .
 ```
 
-Then open the URL shown in the terminal (usually `http://localhost:3000`).
+## Home screen
+
+| Card | Opens | Summary |
+|------|--------|---------|
+| **Chess** | `chess.html` | Play vs computer or 2 players; hardness levels up when you win |
+| **Sudoku** | `sudoku.html` | Classic 9×9 puzzles — Easy, Medium, Hard |
+
+## Chess
+
+### Features
+- Legal moves only: castling, en passant, promotion, check / checkmate / stalemate, 50-move draw
+- **vs Computer** (you are White) or **2 Players**
+- Hardness: Beginner → Easy → Medium → Hard → Expert (levels up after each win; saved until **Reset level**)
+- Undo, flip board, move history (SAN), captured pieces
+
+### Help & Rules (in-game)
+Open **Help & Rules** for four tabs:
+
+| Tab | Contents |
+|-----|----------|
+| How to play | Clicks, modes, hardness, board cues, home link |
+| Pieces | How king, queen, rook, bishop, knight, and pawn move |
+| Special rules | Checkmate, stalemate, castling, en passant, promotion, 50-move rule |
+| Tips | Strategy tips and SAN notation guide |
+
+Close help with **×**, click outside, or **Escape**.
+
+## Sudoku
+
+### Features
+- Unique puzzles generated in the browser
+- Easy / Medium / Hard
+- Number pad + keyboard (`1–9`, arrows, Backspace)
+- Check, Hint, Erase, timer
+- Conflict highlighting (same number in row / column / box)
+
+### Help & Rules (in-game)
+Open **Help & Rules** for four tabs:
+
+| Tab | Contents |
+|-----|----------|
+| How to play | Selecting cells, entering numbers, clues, conflicts, solving |
+| Rules | Goal of Sudoku, clues, difficulty |
+| Controls | Buttons and keyboard shortcuts |
+| Tips | Singles, box logic, cross-hatching, when to use Check / Hint |
+
+## Project files
+
+| File | Purpose |
+|------|---------|
+| `index.html` / `home.css` | Game picker cards |
+| `chess.html` / `styles.css` / `script.js` | Chess game + help |
+| `sudoku.html` / `sudoku.css` / `sudoku.js` | Sudoku game + help |
+| `README.md` | This documentation |
 
 ## Deploy (GitHub Pages)
 
-This repo is set up for GitHub Pages from the `main` branch root.
-
-1. Push changes to `main`
-2. In the repo: **Settings → Pages → Deploy from branch → `main` / root**
-3. Site will be at `https://<user>.github.io/CHESS/`
-
-## Controls
-
-| Control | Action |
-|---------|--------|
-| New game | Start a fresh match (keeps hardness) |
-| Undo | Take back the last move (and the computer’s reply in vs Computer) |
-| Flip board | Rotate the board view |
-| Help & Rules | Open rules, piece moves, and tips |
-| Reset level | Set hardness back to Beginner |
+1. Push to `main`
+2. **Settings → Pages → Deploy from branch → `main` / root**
+3. Visit `https://<user>.github.io/CHESS/`
 
 ## License
 
