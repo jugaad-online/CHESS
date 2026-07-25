@@ -1,6 +1,6 @@
 # Games — Jugaad Online
 
-Thirty browser games from one home screen. Every game has a **2D / 3D** view toggle (shared across pages; press `2` or `3`).
+Thirty-two browser games from one home screen. Every game has a **2D / 3D** view toggle (shared across pages; press `2` or `3`).
 
 **Live demo:** [https://jugaad-online.github.io/CHESS/](https://jugaad-online.github.io/CHESS/)
 
@@ -40,6 +40,8 @@ npx --yes serve .
 | **Mastermind** | `mastermind.html` | Crack the color code |
 | **Yahtzee** | `yahtzee.html` | Dice scorecard |
 | **Solitaire** | `solitaire.html` | Klondike foundations |
+| **UNO** | `uno.html` | Vs 3 AIs · wilds · UNO call |
+| **Monopoly** | `monopoly.html` | Vs 2 AIs · buy / rent / jail |
 
 ## Other games
 

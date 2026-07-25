@@ -236,6 +236,12 @@ body {
 .tone-solitaire .card-visual { background: linear-gradient(145deg, #1a5c3a, #0d2e1c); }
 .tone-solitaire .card-title, .tone-solitaire .card-cta { color: #0d2e1c; }
 
+.tone-uno .card-visual { background: linear-gradient(145deg, #c45c48, #1a2421); font-size: 1.15rem; }
+.tone-uno .card-title, .tone-uno .card-cta { color: #8a3228; }
+
+.tone-mono .card-visual { background: linear-gradient(145deg, #2f6b4f, #c4a35a); }
+.tone-mono .card-title, .tone-mono .card-cta { color: #0f2a1e; }
+
 @media (max-width: 640px) {
   .card-grid {
     grid-template-columns: 1fr;

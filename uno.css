@@ -1,0 +1,112 @@
+:root { --accent: #c45c48; --accent-deep: #8a3228; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+
+.uno-layout {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.uno-ops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+}
+
+.op {
+  background: #f4f1ea;
+  border: 1.5px solid rgba(26, 36, 33, 0.12);
+  padding: 0.45rem;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.op.active { outline: 2px solid var(--accent); }
+.op .count {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  display: block;
+  margin-top: 0.15rem;
+}
+.op.uno-warn { background: #fde8e4; }
+
+.uno-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 110px;
+}
+
+.uno-card, .uno-back, .uno-pile .uno-card {
+  width: 64px;
+  height: 96px;
+  border-radius: 8px;
+  border: 2px solid #1a2421;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  position: relative;
+}
+
+.uno-back {
+  background: linear-gradient(145deg, #8a3228, #3a1510);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  color: #f7e6a3;
+}
+
+.uno-card.R { background: #c45c48; }
+.uno-card.Y { background: #c4a35a; color: #1a2421; }
+.uno-card.G { background: #2f6b4f; }
+.uno-card.B { background: #2f6f8f; }
+.uno-card.W { background: #1a2421; }
+.uno-card .badge {
+  position: absolute;
+  top: 4px; left: 5px;
+  font-size: 0.7rem;
+}
+
+.uno-hand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+  min-height: 104px;
+}
+
+.uno-hand .uno-card {
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.uno-hand .uno-card:hover { transform: translateY(-6px); }
+.uno-hand .uno-card.playable { box-shadow: 0 0 0 3px #1a2421, 0 8px 16px rgba(0,0,0,0.2); }
+.uno-hand .uno-card:disabled { opacity: 0.45; cursor: default; transform: none; }
+
+.wild-pick {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+.wild-pick.hidden { display: none; }
+.wc {
+  appearance: none;
+  border: none;
+  padding: 0.7rem 0.4rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  min-height: 44px;
+}
+.wc.r { background: #c45c48; }
+.wc.y { background: #c4a35a; color: #1a2421; }
+.wc.g { background: #2f6b4f; }
+.wc.b { background: #2f6f8f; }

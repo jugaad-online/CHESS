@@ -147,7 +147,9 @@ body {
 .ludo-board,
 .sl-board,
 .board-well,
-.stage-frame {
+.stage-frame,
+.uno-layout,
+.mono-wrap {
   width: var(--board-max) !important;
   max-width: 100% !important;
   margin-left: auto;
