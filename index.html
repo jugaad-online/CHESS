@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="brand">Chess</h1>
+      <p class="tagline">Play the computer — hardness adapts to you</p>
+    </header>
+
+    <main class="stage">
+      <aside class="panel panel-left">
+        <div class="status-card">
+          <p class="label">Turn</p>
+          <p id="turn-indicator" class="turn">White to move</p>
+          <p id="game-message" class="message" aria-live="polite"></p>
+        </div>
+
+        <div class="difficulty-card">
+          <p class="label">Hardness</p>
+          <p id="difficulty-name" class="difficulty-name">Beginner</p>
+          <div class="difficulty-meter" aria-hidden="true">
+            <div id="difficulty-fill" class="difficulty-fill"></div>
+          </div>
+          <p id="difficulty-note" class="difficulty-note">Levels up after each win — stays until reset</p>
+          <button id="btn-reset-level" type="button" class="btn-reset">Reset level</button>
+        </div>
+
+        <div class="captured">
+          <div>
+            <p class="label">White captured</p>
+            <div id="captured-by-white" class="captured-pieces"></div>
+          </div>
+          <div>
+            <p class="label">Black captured</p>
+            <div id="captured-by-black" class="captured-pieces"></div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="board-wrap" aria-label="Chess board">
+        <div id="board" class="board" role="grid"></div>
+      </section>
+
+      <aside class="panel panel-right">
+        <div class="mode-row" role="group" aria-label="Game mode">
+          <button id="btn-vs-ai" type="button" class="mode-btn active">vs Computer</button>
+          <button id="btn-vs-human" type="button" class="mode-btn">2 Players</button>
+        </div>
+
+        <div class="controls">
+          <button id="btn-new" type="button" class="btn">New game</button>
+          <button id="btn-undo" type="button" class="btn btn-ghost">Undo</button>
+          <button id="btn-flip" type="button" class="btn btn-ghost">Flip board</button>
+          <button id="btn-help" type="button" class="btn btn-ghost">Help & Rules</button>
+        </div>
+
+        <div class="history">
+          <p class="label">Moves</p>
+          <ol id="move-list" class="move-list"></ol>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div id="promotion-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="promotion-title">
+    <div class="modal-card">
+      <h2 id="promotion-title">Promote pawn</h2>
+      <div id="promotion-choices" class="promotion-choices"></div>
+    </div>
+  </div>
+
+  <div id="help-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <div class="modal-card help-card">
+      <div class="help-top">
+        <h2 id="help-title">Help & Rules</h2>
+        <button id="btn-help-close" type="button" class="help-close" aria-label="Close help">×</button>
+      </div>
+
+      <div class="help-tabs" role="tablist" aria-label="Help sections">
+        <button type="button" class="help-tab active" role="tab" aria-selected="true" data-tab="play">How to play</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="pieces">Pieces</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="rules">Special rules</button>
+        <button type="button" class="help-tab" role="tab" aria-selected="false" data-tab="tips">Tips</button>
+      </div>
+
+      <div class="help-body">
+        <section id="help-play" class="help-panel active" role="tabpanel">
+          <h3>Using this game</h3>
+          <ul>
+            <li><strong>Select a piece</strong> by clicking it. Legal squares light up with a dot (or a ring for captures).</li>
+            <li><strong>Move</strong> by clicking a highlighted square.</li>
+            <li><strong>vs Computer</strong> — you play White; the computer plays Black and thinks briefly between moves.</li>
+            <li><strong>2 Players</strong> — take turns on the same device.</li>
+            <li><strong>New game</strong> starts a fresh match. Your hardness level is kept.</li>
+            <li><strong>Undo</strong> takes back the last move (and the computer’s reply in vs Computer).</li>
+            <li><strong>Flip board</strong> rotates the board view.</li>
+            <li><strong>Hardness</strong> goes up one level each time you beat the computer. It stays raised until you press <strong>Reset level</strong>.</li>
+          </ul>
+          <h3>Board cues</h3>
+          <ul>
+            <li>Gold highlight = last move.</li>
+            <li>Red outline on king = that side is in check.</li>
+            <li>Move list on the right shows standard chess notation (SAN).</li>
+          </ul>
+        </section>
+
+        <section id="help-pieces" class="help-panel" role="tabpanel" hidden>
+          <h3>How each piece moves</h3>
+          <div class="piece-rules">
+            <article>
+              <h4>♔ / ♚ King</h4>
+              <p>One square in any direction. Cannot move into check. Castling is a special king move (see Special rules).</p>
+            </article>
+            <article>
+              <h4>♕ / ♛ Queen</h4>
+              <p>Any number of squares vertically, horizontally, or diagonally — like rook + bishop combined.</p>
+            </article>
+            <article>
+              <h4>♖ / ♜ Rook</h4>
+              <p>Any number of squares vertically or horizontally. Involved in castling.</p>
+            </article>
+            <article>
+              <h4>♗ / ♝ Bishop</h4>
+              <p>Any number of squares diagonally. Stays on the same color square forever.</p>
+            </article>
+            <article>
+              <h4>♘ / ♞ Knight</h4>
+              <p>L-shape: 2 squares one way and 1 sideways (or 1 and 2). Jumps over pieces.</p>
+            </article>
+            <article>
+              <h4>♙ / ♟ Pawn</h4>
+              <p>Forward one square (two from the starting rank). Captures one square diagonally forward. Can promote on the last rank.</p>
+            </article>
+          </div>
+          <p class="help-note">White pieces start on ranks 1–2; Black on ranks 7–8. White always moves first.</p>
+        </section>
+
+        <section id="help-rules" class="help-panel" role="tabpanel" hidden>
+          <h3>Special rules (all enforced here)</h3>
+          <article class="rule-block">
+            <h4>Check & checkmate</h4>
+            <p>If your king is attacked, you are in <strong>check</strong> and must escape (move the king, block, or capture the attacker). If you cannot escape, it is <strong>checkmate</strong> and you lose.</p>
+          </article>
+          <article class="rule-block">
+            <h4>Stalemate</h4>
+            <p>If it is your turn, you are not in check, but have no legal moves, the game is a <strong>draw</strong> by stalemate.</p>
+          </article>
+          <article class="rule-block">
+            <h4>Castling (O-O / O-O-O)</h4>
+            <p>Move the king two squares toward a rook, and the rook jumps to the far side of the king. Allowed only if:</p>
+            <ul>
+              <li>King and that rook have not moved yet</li>
+              <li>Squares between them are empty</li>
+              <li>King is not in check, and does not pass through or land on an attacked square</li>
+            </ul>
+          </article>
+          <article class="rule-block">
+            <h4>En passant</h4>
+            <p>If an enemy pawn jumps two squares and lands beside yours, you may capture it on the next move as if it had moved only one square. This must be done immediately.</p>
+          </article>
+          <article class="rule-block">
+            <h4>Pawn promotion</h4>
+            <p>When a pawn reaches the far rank, choose Queen, Rook, Bishop, or Knight. The computer always promotes to a Queen.</p>
+          </article>
+          <article class="rule-block">
+            <h4>50-move rule</h4>
+            <p>If 50 full moves pass with no capture and no pawn move, the game is drawn.</p>
+          </article>
+        </section>
+
+        <section id="help-tips" class="help-panel" role="tabpanel" hidden>
+          <h3>Helpful tips</h3>
+          <ul class="tips-list">
+            <li><strong>Control the center</strong> — e4, d4, e5, d5 give your pieces more room.</li>
+            <li><strong>Develop early</strong> — bring out knights and bishops before launching big attacks.</li>
+            <li><strong>Castle early</strong> — get the king safe and connect your rooks.</li>
+            <li><strong>Don’t hang pieces</strong> — before you move, check whether that piece can be taken for free.</li>
+            <li><strong>Look at checks</strong> — forcing moves (checks and captures) often reveal tactics.</li>
+            <li><strong>Trade when ahead</strong> — if you are up material, simplifying can make the win easier.</li>
+            <li><strong>Use Undo wisely</strong> — great for learning; try a line, undo, and try another.</li>
+            <li><strong>Climb hardness slowly</strong> — win at Beginner, then Easy, and so on. Reset level if the computer becomes too strong.</li>
+            <li><strong>Watch the move list</strong> — learning SAN (Nf3, O-O, exd5) helps you follow chess anywhere.</li>
+          </ul>
+          <h3>Quick notation guide</h3>
+          <ul>
+            <li><strong>K, Q, R, B, N</strong> = king, queen, rook, bishop, knight (pawns have no letter)</li>
+            <li><strong>x</strong> = capture · <strong>+</strong> = check · <strong>#</strong> = checkmate</li>
+            <li><strong>O-O</strong> = kingside castle · <strong>O-O-O</strong> = queenside castle</li>
+            <li><strong>=Q</strong> = pawn promoted to queen</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
