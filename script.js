@@ -968,10 +968,12 @@
       promotionChoicesEl.appendChild(btn);
     }
     modalEl.classList.remove("hidden");
+    modalEl.removeAttribute("hidden");
   }
 
   function hidePromotion() {
     modalEl.classList.add("hidden");
+    modalEl.setAttribute("hidden", "");
     promotionChoicesEl.innerHTML = "";
   }
 
@@ -1040,11 +1042,13 @@
 
   function openHelp() {
     helpModalEl.classList.remove("hidden");
+    helpModalEl.removeAttribute("hidden");
     document.getElementById("btn-help-close").focus();
   }
 
   function closeHelp() {
     helpModalEl.classList.add("hidden");
+    helpModalEl.setAttribute("hidden", "");
   }
 
   function showHelpTab(name) {
