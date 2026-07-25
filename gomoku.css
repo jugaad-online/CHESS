@@ -1,0 +1,58 @@
+:root { --accent: #5c450c; --accent-deep: #3a2c08; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+
+.go-board {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  width: min(100%, 480px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+  gap: 0;
+  padding: 6px;
+  background:
+    linear-gradient(#c9a66b, #c9a66b),
+    repeating-linear-gradient(0deg, transparent, transparent calc(100% / 13 - 1px), #5c450c22 calc(100% / 13 - 1px), #5c450c22 calc(100% / 13)),
+    repeating-linear-gradient(90deg, transparent, transparent calc(100% / 13 - 1px), #5c450c22 calc(100% / 13 - 1px), #5c450c22 calc(100% / 13));
+  border: 5px solid #5c450c;
+  box-shadow: var(--shadow);
+}
+
+.go-cell {
+  appearance: none;
+  border: none;
+  background: transparent;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+.go-cell::before {
+  content: "";
+  position: absolute;
+  inset: 48% 0;
+  height: 1px;
+  background: #5c450c55;
+}
+.go-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0 48%;
+  width: 1px;
+  background: #5c450c55;
+}
+.go-cell:disabled { cursor: default; }
+
+.stone {
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+.stone.b { background: radial-gradient(circle at 35% 30%, #555, #111); }
+.stone.w { background: radial-gradient(circle at 35% 30%, #fff, #ddd); }
+.stone.last { outline: 2px solid #c45c48; outline-offset: 1px; }

@@ -5,6 +5,8 @@
   --paper-deep: #d4e0d6;
   --sea: #2f6f8f;
   --sea-deep: #1e3a4c;
+  --accent: #2f6f8f;
+  --accent-deep: #1e3a4c;
   --light-cell: #f4f8fa;
   --line: #1e3a4c;
   --select: #c4a35a;
@@ -23,25 +25,33 @@
 
 html {
   margin: 0;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100%;
+  min-height: 100dvh;
   font-family: var(--font-ui);
   color: var(--ink);
   background:
     radial-gradient(ellipse 70% 50% at 12% 0%, rgba(47, 111, 143, 0.22), transparent 55%),
     radial-gradient(ellipse 60% 40% at 90% 100%, rgba(196, 163, 90, 0.16), transparent 50%),
     linear-gradient(165deg, #f2f6f8 0%, #e8eef2 50%, #dce6ec 100%);
-  overflow-x: hidden;
+  overflow-x: clip;
+  touch-action: manipulation;
 }
 
 .app {
-  width: min(980px, 100%);
+  width: 100%;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 1.25rem 1rem 2.5rem;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.85rem 1.25rem;
+  box-sizing: border-box;
 }
 
 .back-home {
@@ -87,6 +97,9 @@ body {
   flex-direction: column;
   gap: 1.25rem;
   align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
 }
 
 .panel {
@@ -147,6 +160,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+}
+
+.controls .view-toggle {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .btn {

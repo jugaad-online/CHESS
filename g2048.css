@@ -1,0 +1,37 @@
+:root { --accent: #8a6b2f; --accent-deep: #6e5424; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+.board-2048 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 10px;
+  background: #bbada0;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+  box-shadow: var(--shadow);
+  touch-action: none;
+}
+.cell-2048 {
+  display: grid;
+  place-items: center;
+  background: rgba(238, 228, 218, 0.35);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 7cqw, 2rem);
+  color: #776e65;
+  container-type: inline-size;
+}
+.cell-2048[data-v="2"] { background: #eee4da; }
+.cell-2048[data-v="4"] { background: #ede0c8; }
+.cell-2048[data-v="8"] { background: #f2b179; color: #f9f6f2; }
+.cell-2048[data-v="16"] { background: #f59563; color: #f9f6f2; }
+.cell-2048[data-v="32"] { background: #f67c5f; color: #f9f6f2; }
+.cell-2048[data-v="64"] { background: #f65e3b; color: #f9f6f2; }
+.cell-2048[data-v="128"] { background: #edcf72; color: #f9f6f2; font-size: clamp(1rem, 6cqw, 1.6rem); }
+.cell-2048[data-v="256"] { background: #edcc61; color: #f9f6f2; font-size: clamp(1rem, 6cqw, 1.6rem); }
+.cell-2048[data-v="512"] { background: #edc850; color: #f9f6f2; font-size: clamp(1rem, 6cqw, 1.6rem); }
+.cell-2048[data-v="1024"] { background: #edc53f; color: #f9f6f2; font-size: clamp(0.85rem, 5cqw, 1.3rem); }
+.cell-2048[data-v="2048"] { background: #edc22e; color: #f9f6f2; font-size: clamp(0.85rem, 5cqw, 1.3rem); }
+.cell-2048[data-v="super"] { background: #3c3a32; color: #f9f6f2; font-size: clamp(0.75rem, 4.5cqw, 1.1rem); }

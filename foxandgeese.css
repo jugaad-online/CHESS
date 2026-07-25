@@ -1,0 +1,49 @@
+:root { --accent: #c2410c; --accent-deep: #7c2d12; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+
+.fg-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: min(100%, 380px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  gap: 3px;
+  padding: 8px;
+  background: #ffedd5;
+  border: 7px solid var(--accent-deep);
+  box-shadow: var(--shadow);
+}
+.fg-cell {
+  appearance: none;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(0.7rem, 3.5vw, 1.1rem);
+}
+.fg-cell.hole {
+  background: #e7c9a8;
+  cursor: pointer;
+}
+.fg-cell.selected { box-shadow: inset 0 0 0 3px #f59e0b; }
+.fg-cell.legal { background: #86efac; cursor: pointer; }
+.fg-cell .fox {
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fb923c, #9a3412);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.fg-cell .goose {
+  width: 68%;
+  height: 68%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f8fafc, #94a3b8);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}

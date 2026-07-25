@@ -1,0 +1,25 @@
+:root { --accent: #a85d5d; --accent-deep: #6e3434; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+.mem-card {
+  aspect-ratio: 1;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(1.4rem, 8vw, 2rem);
+  background: linear-gradient(145deg, #a85d5d, #6e3434);
+  color: transparent;
+  box-shadow: var(--shadow);
+}
+.mem-card.flipped, .mem-card.matched {
+  background: #f7f0ea;
+  color: var(--accent-deep);
+}
+.mem-card.matched { opacity: 0.7; cursor: default; }

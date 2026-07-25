@@ -1,0 +1,36 @@
+:root { --accent: #5a6a72; --accent-deep: #2f3b42; }
+.app.wide { width: min(560px, 100%); }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover, .btn.diff.active { background: var(--accent-deep); color: #f7faf7; border-color: var(--accent-deep); }
+.ms-board {
+  display: grid;
+  gap: 2px;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  background: #2f3b42;
+  padding: 4px;
+  box-shadow: var(--shadow);
+  user-select: none;
+}
+.ms-cell {
+  aspect-ratio: 1;
+  border: none;
+  background: #9aa7af;
+  font-size: clamp(0.7rem, 3.2vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  min-width: 0;
+}
+.ms-cell.open { background: #d8e0e4; cursor: default; }
+.ms-cell.mine { background: #c45c48; color: #fff; }
+.ms-cell.flag::after { content: "⚑"; color: #6e3434; }
+.ms-cell.c1 { color: #1e4a8c; }
+.ms-cell.c2 { color: #1e6b3a; }
+.ms-cell.c3 { color: #a33; }
+.ms-cell.c4 { color: #4a2a8c; }
+.ms-cell.c5 { color: #7a3a1a; }
+.ms-cell.c6 { color: #1a6a6a; }
+.ms-cell.c7 { color: #222; }
+.ms-cell.c8 { color: #555; }

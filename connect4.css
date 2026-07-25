@@ -1,0 +1,25 @@
+:root { --accent: #3a5a8c; --accent-deep: #1f3358; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+.c4-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 10px;
+  background: var(--accent-deep);
+  box-shadow: var(--shadow);
+}
+.c4-cell {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  background: #dce6f0;
+  cursor: pointer;
+  padding: 0;
+}
+.c4-cell.p1 { background: #c45c48; }
+.c4-cell.p2 { background: #3a7bd5; }
+.c4-cell:disabled { cursor: default; }

@@ -1,0 +1,90 @@
+:root {
+  --accent: #3d4a5c;
+  --accent-deep: #1c2430;
+  --ink: #1a2421;
+  --ink-soft: #3d4a45;
+}
+
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+
+.play-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.board-well {
+  background: #dfe6ee;
+  border: 3px solid #1c2430;
+  padding: 10px;
+  box-shadow: var(--shadow);
+}
+
+#canvas {
+  display: block;
+  width: min(100%, 300px);
+  max-width: 100%;
+  height: auto;
+  background: #1a2330;
+  border: 2px solid #0d1218;
+  image-rendering: auto;
+}
+
+.side {
+  width: min(100%, 160px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+#next {
+  display: block;
+  width: 120px;
+  height: 120px;
+  background: #1a2330;
+  border: 3px solid #1c2430;
+  box-shadow: 0 8px 20px rgba(20, 30, 40, 0.15);
+}
+
+.pad {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: stretch;
+}
+
+.pad-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.pad button {
+  appearance: none;
+  border: 1.5px solid rgba(61, 74, 92, 0.45);
+  background: #e8edf2;
+  color: var(--accent-deep);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.55rem 0.4rem;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0.2rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}

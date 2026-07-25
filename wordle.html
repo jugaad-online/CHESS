@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Word Guess</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="wordle.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Word Guess</h1>
+      <p class="tagline">6 tries · 5 letters</p>
+    </header>
+    <p id="status" class="status-line">Guess the word</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div><button id="btn-new" class="btn" type="button">New word</button></div>
+    <div class="view-stage" data-view-stage>
+      <div id="board" class="word-board"></div>
+    </div>
+    <div id="keys" class="keyboard"></div>
+  </div>
+    <script src="viewmode.js"></script>
+  <script src="wordle.js"></script>
+</body>
+</html>

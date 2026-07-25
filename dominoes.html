@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dominoes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="dominoes.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Dominoes</h1>
+      <p class="tagline">Match ends · empty your hand</p>
+    </header>
+    <p id="status" class="status-line">Your turn</p>
+    <p id="score" class="score-line">Ends: — · Boneyard: 14</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-draw" class="btn btn-ghost" type="button">Draw</button>
+      <button id="btn-new" class="btn" type="button">New game</button>
+    </div>
+    <div class="view-stage view-stage-fill" data-view-stage>
+      <div class="dom-layout">
+        <p class="dom-label">Computer (<span id="ai-count">7</span>)</p>
+        <div id="table" class="dom-table" aria-label="Table chain"></div>
+        <p class="dom-label">Your hand</p>
+        <div id="hand" class="dom-hand" aria-label="Your hand"></div>
+      </div>
+    </div>
+  </div>
+  <script src="viewmode.js"></script>
+  <script src="dominoes.js"></script>
+</body>
+</html>

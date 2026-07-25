@@ -1,0 +1,123 @@
+/* Shared chrome for mini-games */
+:root {
+  --ink: #1a2421;
+  --ink-soft: #3d4a45;
+  --accent: #2f6b4f;
+  --accent-deep: #1e4a36;
+  --paper: #eef3ef;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-ui: "Outfit", system-ui, sans-serif;
+  --shadow: 0 18px 40px rgba(30, 50, 40, 0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  margin: 0;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 70% 45% at 10% 0%, rgba(47, 107, 79, 0.14), transparent 55%),
+    linear-gradient(165deg, #eef4ef 0%, #e4ece6 45%, #d5e0d8 100%);
+  overflow-x: clip;
+}
+
+.app {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.85rem 1.25rem;
+  box-sizing: border-box;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.back-home:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+.header {
+  text-align: center;
+  margin-bottom: 0.55rem;
+  flex-shrink: 0;
+}
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 6vw, 2.8rem);
+  font-weight: 400;
+  color: var(--accent-deep);
+  line-height: 1.05;
+}
+.tagline {
+  margin: 0.25rem 0 0;
+  font-size: clamp(0.68rem, 2.2vw, 0.82rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  margin-bottom: 0.55rem;
+  flex-shrink: 0;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  padding: 0.65rem 0.95rem;
+  min-height: 44px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f7faf7;
+  background: var(--accent);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.btn:hover { background: var(--accent-deep); }
+.btn-ghost {
+  color: var(--accent-deep);
+  background: transparent;
+  border: 1.5px solid rgba(47, 107, 79, 0.45);
+}
+.btn-ghost:hover { background: rgba(47, 107, 79, 0.1); }
+
+.status-line {
+  text-align: center;
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 3.8vw, 1.3rem);
+  color: var(--accent-deep);
+  min-height: 1.35em;
+  flex-shrink: 0;
+}
+
+.score-line {
+  text-align: center;
+  margin: 0 0 0.4rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  font-size: clamp(0.8rem, 3vw, 0.95rem);
+  flex-shrink: 0;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Snake</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="snake.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app snake-app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Snake</h1>
+      <p class="tagline">Realistic snake · swap 2D / 3D</p>
+    </header>
+    <p class="score-line">Score <strong id="score">0</strong> · Best <strong id="best">0</strong></p>
+    <p id="status" class="status-line">Press Start</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-start" class="btn" type="button">Start</button>
+      <button id="btn-new" class="btn btn-ghost" type="button">Reset</button>
+    </div>
+    <div class="view-stage view-stage-fill view-stage-native" data-view-stage id="stage-frame">
+      <div class="stage-frame" id="snake-frame">
+        <canvas id="canvas" width="480" height="480" aria-label="Snake game"></canvas>
+      </div>
+    </div>
+    <div class="dpad" aria-label="Direction pad">
+      <button type="button" data-dir="up">↑</button>
+      <div class="dpad-mid">
+        <button type="button" data-dir="left">←</button>
+        <button type="button" data-dir="right">→</button>
+      </div>
+      <button type="button" data-dir="down">↓</button>
+    </div>
+  </div>
+  <script src="viewmode.js"></script>
+  <script src="snake.js"></script>
+</body>
+</html>

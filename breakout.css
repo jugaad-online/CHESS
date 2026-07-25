@@ -1,0 +1,14 @@
+:root { --accent: #b07050; --accent-deep: #6e3f2a; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+#canvas {
+  display: block;
+  width: min(100%, var(--board-max, 560px));
+  height: auto;
+  margin: 0 auto;
+  background: #2a1c14;
+  box-shadow: var(--shadow);
+  touch-action: none;
+  cursor: none;
+}

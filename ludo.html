@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ludo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="ludo.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app wide">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Ludo</h1>
+      <p class="tagline">You are Red · three computer opponents</p>
+    </header>
+
+    <p id="status" class="status-line">Roll the dice to start</p>
+    <p class="score-line" id="finished-line">Finished: none yet</p>
+
+    <div class="dice-panel">
+      <div class="dice-scene">
+        <div id="dice3d" class="dice3d">
+          <div class="face face-1"><span class="pip"></span></div>
+          <div class="face face-2"><span class="pip"></span><span class="pip"></span></div>
+          <div class="face face-3"><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="face face-4"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="face face-5"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="face face-6"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+        </div>
+      </div>
+      <p class="dice-caption">Rolled <strong id="dice-val">—</strong></p>
+    </div>
+
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-roll" class="btn" type="button">Roll dice</button>
+      <button id="btn-new" class="btn btn-ghost" type="button">New game</button>
+      <button id="btn-help" class="btn btn-ghost" type="button">Help</button>
+    </div>
+
+    <div class="view-stage view-stage-fill" data-view-stage>
+      <div id="board" class="ludo-board" aria-label="Ludo board"></div>
+    </div>
+  </div>
+
+  <div id="help-modal" class="modal hidden" hidden>
+    <div class="modal-card">
+      <div class="help-top">
+        <h2>How to play Ludo</h2>
+        <button id="btn-help-close" type="button" class="help-close" aria-label="Close">×</button>
+      </div>
+      <div class="help-body">
+        <ul>
+          <li>You are <strong>Red</strong>. Green, Yellow, and Blue are computers.</li>
+          <li>Roll a <strong>6</strong> to move a token out of the yard onto the board.</li>
+          <li>Rolling a 6 also gives an <strong>extra turn</strong>.</li>
+          <li>Land on an opponent (not on a safe star) to send them back home.</li>
+          <li>Enter your colored home path, then reach the center with an <strong>exact</strong> roll.</li>
+          <li>If several tokens can move, <strong>click</strong> the one you want.</li>
+          <li>First to get all four tokens home wins.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="viewmode.js"></script>
+  <script src="ludo.js"></script>
+</body>
+</html>

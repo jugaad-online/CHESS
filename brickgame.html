@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Brick Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="brickgame.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Brick Game</h1>
+      <p class="tagline">Stack bricks · clear lines · don’t top out</p>
+    </header>
+
+    <p class="score-line">
+      Score <strong id="score">0</strong>
+      · Lines <strong id="lines">0</strong>
+      · Level <strong id="level">1</strong>
+    </p>
+    <p id="status" class="status-line">Press Start</p>
+
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-start" class="btn" type="button">Start / Pause</button>
+      <button id="btn-new" class="btn btn-ghost" type="button">New game</button>
+    </div>
+
+    <div class="play-layout">
+      <div class="view-stage" data-view-stage>
+        <div class="board-well">
+          <canvas id="canvas" width="300" height="600" aria-label="Brick game board"></canvas>
+        </div>
+      </div>
+      <aside class="side">
+        <p class="label">Next</p>
+        <canvas id="next" width="120" height="120" aria-label="Next piece"></canvas>
+        <div class="pad" aria-label="Controls">
+          <button type="button" data-act="rot">⟳</button>
+          <div class="pad-row">
+            <button type="button" data-act="left">←</button>
+            <button type="button" data-act="down">↓</button>
+            <button type="button" data-act="right">→</button>
+          </div>
+          <button type="button" data-act="drop">Drop</button>
+        </div>
+        <p class="hint">Arrows move · Up / X rotate · Space drop</p>
+      </aside>
+    </div>
+  </div>
+  <script src="viewmode.js"></script>
+  <script src="brickgame.js"></script>
+</body>
+</html>

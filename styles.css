@@ -15,6 +15,8 @@
   --font-display: "Instrument Serif", Georgia, serif;
   --font-ui: "Outfit", system-ui, sans-serif;
   --stage-gap: 1.25rem;
+  --accent: #2f6b4f;
+  --accent-deep: #1e4a36;
 }
 
 *,
@@ -25,12 +27,14 @@
 
 html {
   margin: 0;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100%;
+  min-height: 100dvh;
   font-family: var(--font-ui);
   color: var(--ink);
   background:
@@ -38,13 +42,19 @@ body {
     radial-gradient(ellipse 70% 50% at 90% 100%, rgba(201, 162, 39, 0.18), transparent 50%),
     linear-gradient(160deg, #f4f8f4 0%, var(--paper) 45%, var(--paper-deep) 100%);
   background-attachment: fixed;
-  overflow-x: hidden;
+  overflow-x: clip;
+  touch-action: manipulation;
 }
 
 .app {
-  width: min(1120px, 100%);
+  width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 1.25rem 1rem 2.5rem;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.85rem 1.25rem;
+  box-sizing: border-box;
 }
 
 .back-home {
@@ -95,6 +105,8 @@ body {
   align-items: stretch;
   gap: var(--stage-gap);
   width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .panel {
@@ -381,6 +393,12 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+}
+
+.controls .view-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .btn {
@@ -727,7 +745,15 @@ body {
 
 @media (max-width: 520px) {
   .app {
-    padding: 0.85rem 0.65rem 1.75rem;
+    padding: 0.5rem 0.55rem 0.85rem;
+  }
+
+  .header {
+    margin-bottom: 0.45rem;
+  }
+
+  .brand {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
   }
 
   .board {
@@ -737,6 +763,7 @@ body {
   .mode-btn {
     font-size: 0.72rem;
     padding: 0.5rem 0.25rem;
+    min-height: 44px;
   }
 
   .help-tabs {
@@ -746,5 +773,14 @@ body {
 
   .help-body {
     padding: 0.75rem;
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .panel-left,
+  .panel-right {
+    gap: 0.75rem;
   }
 }

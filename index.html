@@ -2,37 +2,261 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Games — Chess & Sudoku</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Games — Jugaad Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="layout.css" />
 </head>
 <body>
   <div class="home">
     <header class="home-header">
       <p class="eyebrow">Jugaad Online</p>
       <h1 class="home-brand">Games</h1>
-      <p class="home-lead">Choose a board. Play in the browser.</p>
+      <p class="home-lead">Thirty games. Pick a card and play in the browser.</p>
     </header>
 
     <main class="card-grid" aria-label="Choose a game">
-      <a class="game-card game-card-chess" href="chess.html">
+      <a class="game-card tone-leaf" href="chess.html">
         <span class="card-visual" aria-hidden="true">♚</span>
         <span class="card-body">
           <span class="card-title">Chess</span>
-          <span class="card-desc">Play the computer with hardness that levels up when you win.</span>
-          <span class="card-cta">Play Chess</span>
+          <span class="card-desc">Vs computer with hardness that levels up when you win.</span>
+          <span class="card-cta">Play</span>
         </span>
       </a>
-
-      <a class="game-card game-card-sudoku" href="sudoku.html">
+      <a class="game-card tone-brown" href="checkers.html">
+        <span class="card-visual" aria-hidden="true">●</span>
+        <span class="card-body">
+          <span class="card-title">Checkers</span>
+          <span class="card-desc">Jump and crown — vs computer.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-rev" href="reversi.html">
+        <span class="card-visual" aria-hidden="true">◐</span>
+        <span class="card-body">
+          <span class="card-title">Reversi</span>
+          <span class="card-desc">Flip discs — dominate the 8×8 board.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-gomoku" href="gomoku.html">
+        <span class="card-visual" aria-hidden="true">五</span>
+        <span class="card-body">
+          <span class="card-title">Gomoku</span>
+          <span class="card-desc">Five in a row on a 13×13 grid.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-hex" href="hex.html">
+        <span class="card-visual" aria-hidden="true">⬡</span>
+        <span class="card-body">
+          <span class="card-title">Hex</span>
+          <span class="card-desc">Connect your sides across the hex grid.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-navy" href="connect4.html">
+        <span class="card-visual" aria-hidden="true">◉</span>
+        <span class="card-body">
+          <span class="card-title">Connect Four</span>
+          <span class="card-desc">Drop discs — get four in a row.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-ink" href="tictactoe.html">
+        <span class="card-visual" aria-hidden="true">XO</span>
+        <span class="card-body">
+          <span class="card-title">Tic-Tac-Toe</span>
+          <span class="card-desc">Classic 3×3 — play the computer.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-morris" href="ninemensmorris.html">
+        <span class="card-visual" aria-hidden="true">✕</span>
+        <span class="card-body">
+          <span class="card-title">Nine Men’s Morris</span>
+          <span class="card-desc">Place, move, mill — remove the opponent.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-quarto" href="quarto.html">
+        <span class="card-visual" aria-hidden="true">▣</span>
+        <span class="card-body">
+          <span class="card-title">Quarto</span>
+          <span class="card-desc">Line up four pieces that share a trait.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-mancala" href="mancala.html">
+        <span class="card-visual" aria-hidden="true">◉◉</span>
+        <span class="card-body">
+          <span class="card-title">Mancala</span>
+          <span class="card-desc">Sow stones and fill your store.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-backgammon" href="backgammon.html">
+        <span class="card-visual" aria-hidden="true">⚄</span>
+        <span class="card-body">
+          <span class="card-title">Backgammon</span>
+          <span class="card-desc">Race home, hit blots, bear off.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-ludo" href="ludo.html">
+        <span class="card-visual" aria-hidden="true">✦</span>
+        <span class="card-body">
+          <span class="card-title">Ludo</span>
+          <span class="card-desc">Classic four-player race — you are Red.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-teal" href="snakesandladders.html">
+        <span class="card-visual" aria-hidden="true">⇅</span>
+        <span class="card-body">
+          <span class="card-title">Snakes &amp; Ladders</span>
+          <span class="card-desc">Roll the dice, climb up, slide down.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-cc" href="chinesecheckers.html">
+        <span class="card-visual" aria-hidden="true">✱</span>
+        <span class="card-body">
+          <span class="card-title">Chinese Checkers</span>
+          <span class="card-desc">Hop across the diamond into the far tip.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-fox" href="foxandgeese.html">
+        <span class="card-visual" aria-hidden="true">▲</span>
+        <span class="card-body">
+          <span class="card-title">Fox &amp; Geese</span>
+          <span class="card-desc">Hunt as the fox — or get trapped.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-ship" href="battleship.html">
+        <span class="card-visual" aria-hidden="true">▣</span>
+        <span class="card-body">
+          <span class="card-title">Battleship</span>
+          <span class="card-desc">Place your fleet and sink the enemy.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-dots" href="dotsandboxes.html">
+        <span class="card-visual" aria-hidden="true">▦</span>
+        <span class="card-body">
+          <span class="card-title">Dots &amp; Boxes</span>
+          <span class="card-desc">Claim lines — complete boxes to score.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-peg" href="pegsolitaire.html">
+        <span class="card-visual" aria-hidden="true">⊙</span>
+        <span class="card-body">
+          <span class="card-title">Peg Solitaire</span>
+          <span class="card-desc">Jump pegs until one remains.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-domino" href="dominoes.html">
+        <span class="card-visual" aria-hidden="true">⣿</span>
+        <span class="card-body">
+          <span class="card-title">Dominoes</span>
+          <span class="card-desc">Match ends — empty your hand first.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-mind" href="mastermind.html">
+        <span class="card-visual" aria-hidden="true">●●</span>
+        <span class="card-body">
+          <span class="card-title">Mastermind</span>
+          <span class="card-desc">Crack the color code in eight guesses.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-yahtzee" href="yahtzee.html">
+        <span class="card-visual" aria-hidden="true">⚄</span>
+        <span class="card-body">
+          <span class="card-title">Yahtzee</span>
+          <span class="card-desc">Roll five dice and fill the scorecard.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-solitaire" href="solitaire.html">
+        <span class="card-visual" aria-hidden="true">♠</span>
+        <span class="card-body">
+          <span class="card-title">Solitaire</span>
+          <span class="card-desc">Klondike — build foundations A to K.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-sea" href="sudoku.html">
         <span class="card-visual" aria-hidden="true">9</span>
         <span class="card-body">
           <span class="card-title">Sudoku</span>
-          <span class="card-desc">Fill the grid so every row, column, and box has 1–9 once.</span>
-          <span class="card-cta">Play Sudoku</span>
+          <span class="card-desc">Fill every row, column, and box with 1–9.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-amber" href="2048.html">
+        <span class="card-visual" aria-hidden="true">2048</span>
+        <span class="card-body">
+          <span class="card-title">2048</span>
+          <span class="card-desc">Swipe and merge tiles until you reach 2048.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-rose" href="memory.html">
+        <span class="card-visual" aria-hidden="true">◆</span>
+        <span class="card-body">
+          <span class="card-title">Memory</span>
+          <span class="card-desc">Flip cards and match pairs.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-slate" href="minesweeper.html">
+        <span class="card-visual" aria-hidden="true">⚑</span>
+        <span class="card-body">
+          <span class="card-title">Minesweeper</span>
+          <span class="card-desc">Clear the grid without hitting a mine.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-forest" href="wordle.html">
+        <span class="card-visual" aria-hidden="true">A</span>
+        <span class="card-body">
+          <span class="card-title">Word Guess</span>
+          <span class="card-desc">Guess the 5-letter word in six tries.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-green" href="snake.html">
+        <span class="card-visual" aria-hidden="true">◎</span>
+        <span class="card-body">
+          <span class="card-title">Snake</span>
+          <span class="card-desc">Realistic snake — swap 2D or 3D view.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-clay" href="breakout.html">
+        <span class="card-visual" aria-hidden="true">▭</span>
+        <span class="card-body">
+          <span class="card-title">Breakout</span>
+          <span class="card-desc">Bounce the ball and clear the bricks.</span>
+          <span class="card-cta">Play</span>
+        </span>
+      </a>
+      <a class="game-card tone-brick" href="brickgame.html">
+        <span class="card-visual" aria-hidden="true">▣</span>
+        <span class="card-body">
+          <span class="card-title">Brick Game</span>
+          <span class="card-desc">Stack falling bricks — classic Tetris-style play.</span>
+          <span class="card-cta">Play</span>
         </span>
       </a>
     </main>

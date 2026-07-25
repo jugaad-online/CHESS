@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Chess</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
 </head>
 <body>
   <div class="app">
@@ -48,7 +50,9 @@
       </aside>
 
       <section class="board-wrap" aria-label="Chess board">
-        <div id="board" class="board" role="grid"></div>
+        <div class="view-stage view-stage-fill" data-view-stage>
+          <div id="board" class="board" role="grid"></div>
+        </div>
       </section>
 
       <aside class="panel panel-right">
@@ -58,6 +62,10 @@
         </div>
 
         <div class="controls">
+          <div class="view-toggle" role="group" aria-label="View mode">
+            <button type="button" class="view-btn" data-view="2d">2D</button>
+            <button type="button" class="view-btn" data-view="3d">3D</button>
+          </div>
           <button id="btn-new" type="button" class="btn">New game</button>
           <button id="btn-undo" type="button" class="btn btn-ghost">Undo</button>
           <button id="btn-flip" type="button" class="btn btn-ghost">Flip board</button>
@@ -204,6 +212,7 @@
     </div>
   </div>
 
+    <script src="viewmode.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

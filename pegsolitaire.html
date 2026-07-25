@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Peg Solitaire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="pegsolitaire.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Peg Solitaire</h1>
+      <p class="tagline">Jump pegs · leave one in the center</p>
+    </header>
+    <p id="status" class="status-line">Select a peg to jump</p>
+    <p id="score" class="score-line">Pegs: 32</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-new" class="btn" type="button">New game</button>
+    </div>
+    <div class="view-stage" data-view-stage>
+      <div id="board" class="peg-board" aria-label="Peg solitaire"></div>
+    </div>
+  </div>
+  <script src="viewmode.js"></script>
+  <script src="pegsolitaire.js"></script>
+</body>
+</html>

@@ -5,49 +5,55 @@
   --paper-deep: #d4e0d6;
   --leaf: #2f6b4f;
   --leaf-deep: #1e4a36;
-  --sand: #c4a35a;
-  --ink-blue: #1e3a4c;
-  --sea: #2f6f8f;
   --font-display: "Instrument Serif", Georgia, serif;
   --font-ui: "Outfit", system-ui, sans-serif;
 }
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
 html {
   margin: 0;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
+  min-height: 100dvh;
   font-family: var(--font-ui);
   color: var(--ink);
   background:
-    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(47, 107, 79, 0.22), transparent 55%),
-    radial-gradient(ellipse 60% 45% at 90% 85%, rgba(47, 111, 143, 0.18), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(47, 107, 79, 0.2), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 90% 85%, rgba(47, 111, 143, 0.14), transparent 50%),
     linear-gradient(165deg, #f3f7f4 0%, var(--paper) 50%, var(--paper-deep) 100%);
+  overflow-x: clip;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .home {
-  width: min(920px, 100%);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(2rem, 6vw, 4rem) 1.25rem 3rem;
+  min-height: 100dvh;
+  padding:
+    max(1rem, env(safe-area-inset-top, 0px))
+    max(0.85rem, env(safe-area-inset-right, 0px))
+    max(1.5rem, env(safe-area-inset-bottom, 0px))
+    max(0.85rem, env(safe-area-inset-left, 0px));
+  box-sizing: border-box;
 }
 
 .home-header {
   text-align: center;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
-  animation: rise 0.65s ease both;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .eyebrow {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.4rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -58,148 +64,227 @@ body {
 .home-brand {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 12vw, 5.5rem);
+  font-size: clamp(3.2rem, 11vw, 5.2rem);
   font-weight: 400;
   line-height: 0.95;
   color: var(--leaf-deep);
 }
 
 .home-lead {
-  margin: 0.7rem 0 0;
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin: 0.65rem 0 0;
+  font-size: clamp(0.92rem, 2.4vw, 1.05rem);
   color: var(--ink-soft);
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.1rem;
+  gap: 0.9rem;
 }
 
 .game-card {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem 1.25rem;
+  gap: 0.85rem 1rem;
   align-items: center;
-  min-height: 160px;
-  padding: 1.35rem 1.4rem;
+  min-height: 112px;
+  padding: 1rem 1.1rem;
   text-decoration: none;
   color: inherit;
   border: 1.5px solid rgba(26, 36, 33, 0.1);
-  background: rgba(247, 250, 247, 0.72);
-  box-shadow: 0 18px 40px rgba(30, 50, 40, 0.1);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-  animation: rise 0.75s ease both;
-}
-
-.game-card:nth-child(2) {
-  animation-delay: 0.08s;
+  background: rgba(247, 250, 247, 0.78);
+  box-shadow: 0 14px 32px rgba(30, 50, 40, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 
 .game-card:hover,
 .game-card:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px rgba(30, 50, 40, 0.16);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(30, 50, 40, 0.14);
   outline: none;
-}
-
-.game-card-chess:hover,
-.game-card-chess:focus-visible {
-  border-color: rgba(47, 107, 79, 0.55);
-}
-
-.game-card-sudoku:hover,
-.game-card-sudoku:focus-visible {
-  border-color: rgba(47, 111, 143, 0.55);
 }
 
 .card-visual {
   display: grid;
   place-items: center;
-  width: clamp(4.5rem, 14vw, 5.75rem);
-  height: clamp(4.5rem, 14vw, 5.75rem);
+  width: 4.2rem;
+  height: 4.2rem;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 3.2rem);
+  font-size: 1.55rem;
   line-height: 1;
+  color: #f7faf7;
   flex-shrink: 0;
-}
-
-.game-card-chess .card-visual {
-  color: #f4f8f4;
-  background: linear-gradient(145deg, var(--leaf) 0%, var(--leaf-deep) 100%);
-}
-
-.game-card-sudoku .card-visual {
-  color: #f2f7fa;
-  background: linear-gradient(145deg, var(--sea) 0%, var(--ink-blue) 100%);
-  font-weight: 400;
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
+  gap: 0.2rem;
   min-width: 0;
 }
 
 .card-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 5vw, 2.35rem);
-  line-height: 1.05;
-  color: var(--leaf-deep);
-}
-
-.game-card-sudoku .card-title {
-  color: var(--ink-blue);
+  font-size: 1.55rem;
+  line-height: 1.1;
 }
 
 .card-desc {
-  font-size: 0.95rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.4;
   color: var(--ink-soft);
 }
 
 .card-cta {
-  margin-top: 0.45rem;
-  font-size: 0.82rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--leaf);
 }
 
-.game-card-sudoku .card-cta {
-  color: var(--sea);
-}
+.tone-leaf .card-visual { background: linear-gradient(145deg, #2f6b4f, #1e4a36); }
+.tone-leaf .card-title, .tone-leaf .card-cta { color: #1e4a36; }
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+.tone-sea .card-visual { background: linear-gradient(145deg, #2f6f8f, #1e3a4c); }
+.tone-sea .card-title, .tone-sea .card-cta { color: #1e3a4c; }
+
+.tone-amber .card-visual { background: linear-gradient(145deg, #c4a35a, #8a6b2f); font-size: 1.05rem; }
+.tone-amber .card-title, .tone-amber .card-cta { color: #6e5424; }
+
+.tone-rose .card-visual { background: linear-gradient(145deg, #a85d5d, #6e3434); }
+.tone-rose .card-title, .tone-rose .card-cta { color: #6e3434; }
+
+.tone-ink .card-visual { background: linear-gradient(145deg, #3d4a45, #1a2421); }
+.tone-ink .card-title, .tone-ink .card-cta { color: #1a2421; }
+
+.tone-slate .card-visual { background: linear-gradient(145deg, #5a6a72, #2f3b42); }
+.tone-slate .card-title, .tone-slate .card-cta { color: #2f3b42; }
+
+.tone-navy .card-visual { background: linear-gradient(145deg, #3a5a8c, #1f3358); }
+.tone-navy .card-title, .tone-navy .card-cta { color: #1f3358; }
+
+.tone-forest .card-visual { background: linear-gradient(145deg, #4a7c59, #2d4f38); }
+.tone-forest .card-title, .tone-forest .card-cta { color: #2d4f38; }
+
+.tone-brown .card-visual { background: linear-gradient(145deg, #8b6914, #5c450c); }
+.tone-brown .card-title, .tone-brown .card-cta { color: #5c450c; }
+
+.tone-green .card-visual { background: linear-gradient(145deg, #3d8b6e, #215544); }
+.tone-green .card-title, .tone-green .card-cta { color: #215544; }
+
+.tone-teal .card-visual { background: linear-gradient(145deg, #2f8f7b, #1a5c4e); font-size: 1.6rem; }
+.tone-teal .card-title, .tone-teal .card-cta { color: #1a5c4e; }
+
+.tone-ludo .card-visual {
+  background: conic-gradient(from 45deg, #c45c48, #c4a35a, #2f6f8f, #2f6b4f, #c45c48);
+  font-size: 1.8rem;
+}
+.tone-ludo .card-title, .tone-ludo .card-cta { color: #8a3228; }
+
+.tone-clay .card-visual { background: linear-gradient(145deg, #b07050, #6e3f2a); }
+.tone-clay .card-title, .tone-clay .card-cta { color: #6e3f2a; }
+
+.tone-brick .card-visual { background: linear-gradient(145deg, #3d4a5c, #1c2430); }
+.tone-brick .card-title, .tone-brick .card-cta { color: #1c2430; }
+
+.tone-rev .card-visual { background: linear-gradient(145deg, #2f6b4f, #0f2a1e); }
+.tone-rev .card-title, .tone-rev .card-cta { color: #0f2a1e; }
+
+.tone-gomoku .card-visual { background: linear-gradient(145deg, #c9a66b, #5c450c); color: #2a1e08; }
+.tone-gomoku .card-title, .tone-gomoku .card-cta { color: #5c450c; }
+
+.tone-hex .card-visual { background: linear-gradient(145deg, #c45c48, #3a5a8c); }
+.tone-hex .card-title, .tone-hex .card-cta { color: #5c221c; }
+
+.tone-morris .card-visual { background: linear-gradient(145deg, #6e6a62, #3a3834); }
+.tone-morris .card-title, .tone-morris .card-cta { color: #3a3834; }
+
+.tone-quarto .card-visual { background: linear-gradient(145deg, #5a4d82, #2c2444); }
+.tone-quarto .card-title, .tone-quarto .card-cta { color: #2c2444; }
+
+.tone-mancala .card-visual { background: linear-gradient(145deg, #8b6914, #4a3818); font-size: 1.1rem; }
+.tone-mancala .card-title, .tone-mancala .card-cta { color: #4a3818; }
+
+.tone-backgammon .card-visual { background: linear-gradient(145deg, #3a5a8c, #141f36); }
+.tone-backgammon .card-title, .tone-backgammon .card-cta { color: #141f36; }
+
+.tone-cc .card-visual { background: linear-gradient(145deg, #c45c48, #3a5a8c); }
+.tone-cc .card-title, .tone-cc .card-cta { color: #5c221c; }
+
+.tone-fox .card-visual { background: linear-gradient(145deg, #c4783a, #6e3f1a); font-size: 1.6rem; }
+.tone-fox .card-title, .tone-fox .card-cta { color: #6e3f1a; }
+
+.tone-ship .card-visual { background: linear-gradient(145deg, #2f5f8f, #16324f); font-size: 1.6rem; }
+.tone-ship .card-title, .tone-ship .card-cta { color: #16324f; }
+
+.tone-dots .card-visual { background: linear-gradient(145deg, #4a6a7c, #243842); }
+.tone-dots .card-title, .tone-dots .card-cta { color: #243842; }
+
+.tone-peg .card-visual { background: linear-gradient(145deg, #7a8f6a, #3d4f34); }
+.tone-peg .card-title, .tone-peg .card-cta { color: #3d4f34; }
+
+.tone-domino .card-visual { background: linear-gradient(145deg, #2a2a2a, #111); }
+.tone-domino .card-title, .tone-domino .card-cta { color: #1a1a1a; }
+
+.tone-mind .card-visual { background: linear-gradient(145deg, #6b3a6e, #3a1e3c); font-size: 1.15rem; }
+.tone-mind .card-title, .tone-mind .card-cta { color: #3a1e3c; }
+
+.tone-yahtzee .card-visual { background: linear-gradient(145deg, #2f6f8f, #8a3228); font-size: 1.6rem; }
+.tone-yahtzee .card-title, .tone-yahtzee .card-cta { color: #1e3a4c; }
+
+.tone-solitaire .card-visual { background: linear-gradient(145deg, #1a5c3a, #0d2e1c); }
+.tone-solitaire .card-title, .tone-solitaire .card-cta { color: #0d2e1c; }
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .game-card {
+    min-height: 88px;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .card-visual {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.35rem;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+  }
+
+  .home-header {
+    margin-bottom: 1.1rem;
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 640px) {
   .card-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 980px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .game-card {
     grid-template-columns: 1fr;
-    min-height: 280px;
-    padding: 1.6rem 1.5rem 1.5rem;
+    min-height: 210px;
     align-content: start;
+    padding: 1.2rem;
   }
 
   .card-visual {
     width: 100%;
-    height: 120px;
-    font-size: 3.6rem;
+    height: 88px;
+    font-size: 2rem;
   }
+
+  .tone-amber .card-visual { font-size: 1.45rem; }
 }

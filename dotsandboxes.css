@@ -1,0 +1,33 @@
+:root { --accent: #b45309; --accent-deep: #7c2d12; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+
+.dab-board {
+  position: relative;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  background: #f3e7d3;
+  border: 6px solid var(--accent-deep);
+  box-shadow: var(--shadow);
+}
+.dab-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.dab-dot { fill: var(--accent-deep); }
+.dab-line {
+  stroke: #d4b896;
+  stroke-width: 10;
+  stroke-linecap: round;
+  cursor: pointer;
+  fill: none;
+}
+.dab-line:hover { stroke: #e8c9a0; }
+.dab-line.taken-you { stroke: #c2410c; cursor: default; }
+.dab-line.taken-ai { stroke: #1d4ed8; cursor: default; }
+.dab-box { fill: transparent; }
+.dab-box.you { fill: rgba(194, 65, 12, 0.35); }
+.dab-box.ai { fill: rgba(29, 78, 216, 0.3); }

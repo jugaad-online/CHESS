@@ -1,80 +1,73 @@
-# Games — Chess & Sudoku
+# Games — Jugaad Online
 
-Browser board games with a card-based home screen.
+Thirty browser games from one home screen. Every game has a **2D / 3D** view toggle (shared across pages; press `2` or `3`).
 
 **Live demo:** [https://jugaad-online.github.io/CHESS/](https://jugaad-online.github.io/CHESS/)
 
 ## Quick start
 
-1. Open [the live site](https://jugaad-online.github.io/CHESS/) or `index.html` locally
-2. Choose a **card**: Chess or Sudoku
-3. Use **← All games** to return to the picker
-4. Open **Help & Rules** inside each game for full instructions
+1. Open the live site or `index.html`
+2. Pick a **card**
+3. Use **← All games** to return
 
 ```bash
 npx --yes serve .
 ```
 
-## Home screen
+## Board games
 
-| Card | Opens | Summary |
-|------|--------|---------|
-| **Chess** | `chess.html` | Play vs computer or 2 players; hardness levels up when you win |
-| **Sudoku** | `sudoku.html` | Classic 9×9 puzzles — Easy, Medium, Hard |
+| Game | File | Notes |
+|------|------|--------|
+| **Chess** | `chess.html` | Vs computer / 2 players · auto hardness · Help |
+| **Checkers** | `checkers.html` | Vs computer · jumps / kings |
+| **Reversi** | `reversi.html` | Othello-style · flip discs |
+| **Gomoku** | `gomoku.html` | Five in a row · 13×13 |
+| **Hex** | `hex.html` | Connect opposite sides |
+| **Connect Four** | `connect4.html` | Vs computer |
+| **Tic-Tac-Toe** | `tictactoe.html` | Vs computer (unbeatable) |
+| **Nine Men’s Morris** | `ninemensmorris.html` | Place · move · mill |
+| **Quarto** | `quarto.html` | Shared-trait line of four |
+| **Mancala** | `mancala.html` | Sow stones · stores |
+| **Backgammon** | `backgammon.html` | Race, hit, bear off |
+| **Ludo** | `ludo.html` | You (Red) vs 3 AIs · 3D dice |
+| **Snakes & Ladders** | `snakesandladders.html` | Classic 1–100 · 3D dice |
+| **Chinese Checkers** | `chinesecheckers.html` | Hop to the opposite tip |
+| **Fox & Geese** | `foxandgeese.html` | Hunt / trap on the cross board |
+| **Battleship** | `battleship.html` | Place fleet · fire |
+| **Dots & Boxes** | `dotsandboxes.html` | Claim lines and boxes |
+| **Peg Solitaire** | `pegsolitaire.html` | Jump until one peg left |
+| **Dominoes** | `dominoes.html` | Match ends vs computer |
+| **Mastermind** | `mastermind.html` | Crack the color code |
+| **Yahtzee** | `yahtzee.html` | Dice scorecard |
+| **Solitaire** | `solitaire.html` | Klondike foundations |
 
-## Chess
+## Other games
 
-### Features
-- Legal moves only: castling, en passant, promotion, check / checkmate / stalemate, 50-move draw
-- **vs Computer** (you are White) or **2 Players**
-- Hardness: Beginner → Easy → Medium → Hard → Expert (levels up after each win; saved until **Reset level**)
-- Undo, flip board, move history (SAN), captured pieces
+| Game | File | Notes |
+|------|------|--------|
+| **Sudoku** | `sudoku.html` | Easy / Medium / Hard · hints |
+| **2048** | `2048.html` | Arrow keys or swipe |
+| **Memory** | `memory.html` | Match 8 pairs |
+| **Minesweeper** | `minesweeper.html` | Easy / Medium / Hard |
+| **Word Guess** | `wordle.html` | 5 letters · 6 tries |
+| **Snake** | `snake.html` | 2D / 3D canvas |
+| **Breakout** | `breakout.html` | Paddle · clear bricks |
+| **Brick Game** | `brickgame.html` | Tetris-style · levels |
 
-### Help & Rules (in-game)
-Open **Help & Rules** for four tabs:
-
-| Tab | Contents |
-|-----|----------|
-| How to play | Clicks, modes, hardness, board cues, home link |
-| Pieces | How king, queen, rook, bishop, knight, and pawn move |
-| Special rules | Checkmate, stalemate, castling, en passant, promotion, 50-move rule |
-| Tips | Strategy tips and SAN notation guide |
-
-Close help with **×**, click outside, or **Escape**.
-
-## Sudoku
-
-### Features
-- Unique puzzles generated in the browser
-- Easy / Medium / Hard
-- Number pad + keyboard (`1–9`, arrows, Backspace)
-- Check, Hint, Erase, timer
-- Conflict highlighting (same number in row / column / box)
-
-### Help & Rules (in-game)
-Open **Help & Rules** for four tabs:
-
-| Tab | Contents |
-|-----|----------|
-| How to play | Selecting cells, entering numbers, clues, conflicts, solving |
-| Rules | Goal of Sudoku, clues, difficulty |
-| Controls | Buttons and keyboard shortcuts |
-| Tips | Singles, box logic, cross-hatching, when to use Check / Hint |
-
-## Project files
+## Shared files
 
 | File | Purpose |
 |------|---------|
-| `index.html` / `home.css` | Game picker cards |
-| `chess.html` / `styles.css` / `script.js` | Chess game + help |
-| `sudoku.html` / `sudoku.css` / `sudoku.js` | Sudoku game + help |
-| `README.md` | This documentation |
+| `index.html` / `home.css` | Home game cards |
+| `common.css` | Shared chrome for mini-games |
+| `viewmode.css` / `viewmode.js` | Shared 2D / 3D toggle |
+| `README.md` | This file |
 
-## Deploy (GitHub Pages)
+## Deploy
 
-1. Push to `main`
-2. **Settings → Pages → Deploy from branch → `main` / root**
-3. Visit `https://<user>.github.io/CHESS/`
+Push `main` and enable GitHub Pages from the branch root:
+
+`https://<user>.github.io/CHESS/`
 
 ## License
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Minesweeper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="minesweeper.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app wide">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Minesweeper</h1>
+      <p class="tagline">Left click open · right click flag</p>
+    </header>
+    <p class="score-line">Mines <strong id="mines">10</strong> · Flags <strong id="flags">0</strong></p>
+    <p id="status" class="status-line">Clear the field</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button class="btn diff active" data-diff="easy" type="button">Easy</button>
+      <button class="btn btn-ghost diff" data-diff="medium" type="button">Medium</button>
+      <button class="btn btn-ghost diff" data-diff="hard" type="button">Hard</button>
+      <button id="btn-new" class="btn" type="button">New</button>
+    </div>
+    <div class="view-stage" data-view-stage>
+      <div id="board" class="ms-board"></div>
+    </div>
+  </div>
+    <script src="viewmode.js"></script>
+  <script src="minesweeper.js"></script>
+</body>
+</html>

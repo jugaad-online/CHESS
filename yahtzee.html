@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Yahtzee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="yahtzee.css" />
+  <link rel="stylesheet" href="viewmode.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="back-home" href="index.html">← All games</a>
+    <header class="header">
+      <h1 class="brand">Yahtzee</h1>
+      <p class="tagline">Roll · hold · score 13 turns</p>
+    </header>
+    <p id="status" class="status-line">Roll the dice</p>
+    <p id="score" class="score-line">Total: 0 · Turn 1/13</p>
+    <div class="toolbar">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" class="view-btn" data-view="2d">2D</button>
+        <button type="button" class="view-btn" data-view="3d">3D</button>
+      </div>
+      <button id="btn-roll" class="btn" type="button">Roll</button>
+      <button id="btn-new" class="btn btn-ghost" type="button">New game</button>
+    </div>
+    <div class="view-stage view-stage-fill" data-view-stage>
+      <div class="yh-wrap">
+        <div id="dice" class="yh-dice" aria-label="Dice"></div>
+        <div id="card" class="yh-card" aria-label="Scorecard"></div>
+      </div>
+    </div>
+  </div>
+  <script src="viewmode.js"></script>
+  <script src="yahtzee.js"></script>
+</body>
+</html>

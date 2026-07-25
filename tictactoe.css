@@ -1,0 +1,23 @@
+:root { --accent: #3d4a45; --accent-deep: #1a2421; }
+.brand, .status-line { color: var(--accent-deep); }
+.btn { background: var(--accent); }
+.btn:hover { background: var(--accent-deep); }
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: min(100%, 320px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+.ttt-cell {
+  border: none;
+  background: #e7ece8;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 12vw, 3.4rem);
+  color: var(--accent-deep);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.ttt-cell:disabled { cursor: default; }
+.ttt-cell.win { background: #cfe0d4; }
